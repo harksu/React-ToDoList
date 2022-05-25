@@ -1,0 +1,28 @@
+.TodoListitem {
+    &:nth-child(even) {
+        //보기 심심하니까 짝수 열은 색깔 입히기
+        background-color: #FAEBD7;
+    }
+
+    font-family: '굴림';
+    display: flex;
+    align-items: center;
+
+    .text {
+        flex: 1;
+        font-size: medium;
+
+    }
+
+    .remove {
+        cursor: pointer; //이거 귀여움 
+
+        &:hover {
+            color: red; //타고 타고 내려와서 삭제 버튼에만 호버 
+        }
+    }
+
+    &+& {
+        border-top: 1px dotted gray;
+    }
+}
