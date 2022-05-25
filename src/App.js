@@ -46,6 +46,7 @@ function App() {
   const onRemove = useCallback(
     (id) => {
       setTodos(todos.filter(todo => todo.id !== id)); // 삭제 함수, 선택된 id가 아닌 객체들로만 새로운 리스트를 만듬, 객체의 변화의 영향을 받으니까 2번째 인자로 todos 
+      setCount(count - 1);
     },
     [todos]
   )
