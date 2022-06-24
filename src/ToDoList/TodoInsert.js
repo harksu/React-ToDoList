@@ -39,7 +39,7 @@ const TodoInsert = ({ onInsert, onRemoveAll }) => {
           <MdAdd />
         </button>
         <button onClick={onRemoveAll}>
-          <FaTrashAlt /> {/*이거 나중에 x 표시 아이콘으로 변경하기 */}
+          <FaTrashAlt />
         </button>
       </form>
     </section>
