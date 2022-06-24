@@ -39,10 +39,13 @@ function App() {
     [todos] // todos가 변경될 때 마다 함수를 새로 생성(해당 함수는, todos의 영향을 받으므로 새로 정의되어야함)
   );
 
-  const onRemove = useCallback(() => {
-    setTodos(""); // 삭제 함수, 선택된 id가 아닌 객체들로만 새로운 리스트를 만듬, 객체의 변화의 영향을 받으니까 2번째 인자로 todos
-    setCount(count - 1);
-  }, [todos]);
+  const onRemove = useCallback(
+    (id) => {
+      setTodos(todos.filter((todo) => todo.id !== id)); // 삭제 함수, 선택된 id가 아닌 객체들로만 새로운 리스트를 만듬, 객체의 변화의 영향을 받으니까 2번째 인자로 todos
+      setCount(count - 1);
+    },
+    [todos]
+  );
 
   const onRemoveAll = useCallback(() => {
     if (window.confirm("전체 일정을 삭제합니다.")) {
