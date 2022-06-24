@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useCallback } from "react";
 import { MdAdd } from "react-icons/md"; // 리액트 아이콘 스타일링
+import { FaTrashAlt } from "react-icons/fa";
 import "../styles/TodoInsert.scss";
 
-const TodoInsert = ({ onInsert }) => {
+const TodoInsert = ({ onInsert, onRemoveAll }) => {
   //제출 함수 제공받고
   const [value, setValue] = useState(""); // 기본적으로 입력값을 useState로 관리하다가
 
@@ -21,10 +22,11 @@ const TodoInsert = ({ onInsert }) => {
         onInsert(value); // 입력되있는 값을 저장하고
         setValue(""); // 입력값 밀어버리고
         // 새로고침 막고
-      } else window.alert("일정을 입력해주세요");
+      }
     },
     [onInsert, value] // 해당 두 값의 변화에 따라서 함수를 새로 정의
   );
+
   return (
     <section>
       <form className="TodoInsert" onSubmit={onSubmit}>
@@ -35,6 +37,9 @@ const TodoInsert = ({ onInsert }) => {
         />
         <button type="submit">
           <MdAdd />
+        </button>
+        <button onClick={onRemoveAll}>
+          <FaTrashAlt /> {/*이거 나중에 x 표시 아이콘으로 변경하기 */}
         </button>
       </form>
     </section>
