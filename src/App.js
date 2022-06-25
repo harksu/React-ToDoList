@@ -16,7 +16,7 @@ function App() {
   const [todoList, setTodoList] = useRecoilState(todos); // state 관리, 초기 값은 todos라는 배열(전역 상태 관리)
   const [count, setCount] = useState(3);
   const nextId = useRef(4); // id를 4부터 시작할 거니, 일단은 할당하는데 솔직히 useRef는 공부를 좀 더 해야 될듯 ++ 해도 부족하니까 더 하셈
-  const todosRecoil = useRecoilValue(todos);
+  const todosRecoil = useRecoilValue(todos); //이게 todoList랑 같은게 맞는건가 ..?
   const onInsert = useCallback(
     (text) => {
       const todo = {
@@ -33,8 +33,10 @@ function App() {
 
   const onRemove = useCallback(
     (id) => {
-      setTodoList(todosRecoil.filter((todo) => todo.id !== id)); // 삭제 함수, 선택된 id가 아닌 객체들로만 새로운 리스트를 만듬, 객체의 변화의 영향을 받으니까 2번째 인자로 todos
-      setCount(count - 1);
+      if (window.confirm("해당 일정을 삭제하시겠습니까?")) {
+        setTodoList(todosRecoil.filter((todo) => todo.id !== id)); // 삭제 함수, 선택된 id가 아닌 객체들로만 새로운 리스트를 만듬, 객체의 변화의 영향을 받으니까 2번째 인자로 todos
+        setCount(count - 1);
+      } else return;
     },
     [todoList]
   );

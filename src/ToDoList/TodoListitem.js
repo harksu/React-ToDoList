@@ -11,7 +11,7 @@ const TodoListitem = ({ todo, onRemove }) => {
 
   return (
     <section className="TodoListitem">
-      <div className="text">할 일 :{text}</div>
+      <div className="text">할 일 : {text}</div>
       <div className="remove" onClick={() => onRemove(id)}>
         삭제
         <MdRemoveCircleOutline />

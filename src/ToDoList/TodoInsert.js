@@ -31,7 +31,7 @@ const TodoInsert = ({ onInsert, onRemoveAll }) => {
     <section>
       <form className="TodoInsert" onSubmit={onSubmit}>
         <input
-          placeholder="to do something"
+          placeholder="write here, to do something"
           value={value}
           onChange={onChange}
         />
