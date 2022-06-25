@@ -22,7 +22,6 @@ function App() {
       const todo = {
         id: nextId.current,
         text,
-        // 객체 할당
       };
       setTodoList(todosRecoil.concat(todo)); //리스트로 객체 관리
       nextId.current += 1; // 다음 객체는 id +1
