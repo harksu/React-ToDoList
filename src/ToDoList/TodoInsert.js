@@ -17,7 +17,7 @@ const TodoInsert = ({ onInsert, onRemoveAll }) => {
     //얘도 최적화를 위해서 콜백으로 사용하는데, 제출은 현재 입력값과 그 입력에 따른 todo list에 저장되어 있는 객체의 변화에 따라서 렌더링 되어야 하는 todo가 바뀌므로 빈배열 x
     (e) => {
       e.preventDefault(); //순서 수정
-      if (value !== "") {
+      if (value) {
         //일정 없는데 저장하는거 마음에 안들어서 밀었습니다.
         onInsert(value); // 입력되있는 값을 저장하고
         setValue(""); // 입력값 밀어버리고

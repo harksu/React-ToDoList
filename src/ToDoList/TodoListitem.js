@@ -1,8 +1,6 @@
 import React from "react";
 import { MdRemoveCircleOutline } from "react-icons/md";
 import "../styles/TodoListitem.scss";
-import { todos } from "../atoms/todos";
-import { useRecoilValue } from "recoil";
 
 const TodoListitem = ({ todo, onRemove }) => {
   // const todosRecoil = useRecoilValue(todos);
@@ -20,4 +18,4 @@ const TodoListitem = ({ todo, onRemove }) => {
   );
 };
 
-export default TodoListitem;
+export default React.memo(TodoListitem);
