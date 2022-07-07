@@ -4,7 +4,7 @@
     border-radius: 30px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15rem;
+    //margin-top: 15rem; 이 친구는 왜 부모 컴포넌트가 아니라 전체에서 마진을 먹을까 ? 
     overflow: hidden;
     background-image: url(../../public/images.png);
 
