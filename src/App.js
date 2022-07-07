@@ -1,21 +1,21 @@
 import "./App.css";
-import TodoInsert from "./ToDoList/TodoInsert";
-import ToDoList from "./ToDoList/ToDoList";
-import ToDoCase from "./ToDoList/ToDoCase";
-import { useState, useRef, useCallback } from "react";
-import BackGround from "./ToDoList/BackGround";
 import {
   useRecoilState,
   useRecoilValue,
   useSetRecoilState,
   useResetRecoilState,
 } from "recoil";
+import { useState, useRef, useCallback } from "react";
 import { todos } from "./atoms/todos.js";
+import TodoInsert from "./ToDoList/TodoInsert";
+import ToDoList from "./ToDoList/ToDoList";
+import ToDoCase from "./ToDoList/ToDoCase";
+import BackGround from "./ToDoList/BackGround";
 
 function App() {
   const [todoList, setTodoList] = useRecoilState(todos); // state 관리, 초기 값은 todos라는 배열(전역 상태 관리)
-  const [count, setCount] = useState(3);
-  const nextId = useRef(4); // id를 4부터 시작할 거니, 일단은 할당하는데 솔직히 useRef는 공부를 좀 더 해야 될듯 ++ 해도 부족하니까 더 하셈
+  const [count, setCount] = useState(0);
+  const nextId = useRef(1); // id를 4부터 시작할 거니, 일단은 할당하는데 솔직히 useRef는 공부를 좀 더 해야 될듯 ++ 해도 부족하니까 더 하셈
   const todosRecoil = useRecoilValue(todos); //이게 todoList랑 같은게 맞는건가 ..?
   const onInsert = useCallback(
     (text) => {
@@ -44,7 +44,7 @@ function App() {
     if (window.confirm("전체 일정을 삭제합니다.")) {
       setTodoList([]);
       setCount(0);
-    } else return;
+    }
   }, []);
   return (
     // 정렬을 위해서 케이스 컴포넌트 만들고, 감싸도록 수정
